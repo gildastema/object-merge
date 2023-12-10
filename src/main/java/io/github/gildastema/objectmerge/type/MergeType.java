@@ -1,4 +1,4 @@
-package com.github.gildastema.objectmerge.type;
+package io.github.gildastema.objectmerge.type;
 
 public enum MergeType {
     /**
