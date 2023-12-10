@@ -35,12 +35,10 @@ jobs:
       uses: case/github-actions-maven-release@1.12.41
       with:
         env:
-          JAVA_HOME: /usr/lib/jvm/java-17-openjdk/
+          JAVA_HOME: '/usr/lib/jvm/java-17-openjdk/'
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           ssh-passphrase: ${{ secrets.SSH_PASS_PHRASE }}
-
-
     - name: Publish to GitHub Packages Apache Maven
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
       env:
