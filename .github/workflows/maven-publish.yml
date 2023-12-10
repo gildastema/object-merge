@@ -28,6 +28,10 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
+    - name: Prepare Release
+      run: mvn --batch-mode release:prepare
+
+
     - name: Publish to GitHub Packages Apache Maven
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
       env:
