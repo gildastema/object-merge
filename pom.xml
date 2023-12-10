@@ -25,7 +25,7 @@
     <distributionManagement>
         <snapshotRepository>
             <id>github</id>
-            <url>https://maven.pkg.github.com/gildastema/object-merge</url>
+            <url>https://maven.pkg.github.com/gildastema/object-merge.git</url>
         </snapshotRepository>
     </distributionManagement>
     <scm>
