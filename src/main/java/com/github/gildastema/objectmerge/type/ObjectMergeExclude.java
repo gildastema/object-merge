@@ -1,4 +1,4 @@
-package com.gildastema.objectmerge.type;
+package com.github.gildastema.objectmerge.type;
 
 public enum ObjectMergeExclude {
     /**

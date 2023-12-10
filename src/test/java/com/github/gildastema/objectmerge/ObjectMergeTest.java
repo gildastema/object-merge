@@ -1,7 +1,7 @@
-package com.gildastema.objectmerge;
+package com.github.gildastema.objectmerge;
 
-import com.gildastema.objectmerge.type.MergeType;
-import com.gildastema.objectmerge.type.ObjectMergeExclude;
+import com.github.gildastema.objectmerge.type.MergeType;
+import com.github.gildastema.objectmerge.type.ObjectMergeExclude;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
