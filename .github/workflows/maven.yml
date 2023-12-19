@@ -33,5 +33,5 @@ jobs:
         cat <(echo -e "${{ secrets.GPG_SECRET_KEY }}") | gpg --batch --import
         # Verify gpg secret key
         gpg --list-secret-keys --keyid-format LONG
-#    - name: test with Maven
-#      run: mvn clean clean  install
+    - name: test with Maven
+      run: mvn clean test
