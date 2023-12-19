@@ -24,7 +24,6 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        server-id: ossrh # Value of the distributionManagement/repository/id field of the pom.xml
     - id: install-gpg-key
       name: Install gpg key
       run: |
