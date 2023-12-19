@@ -18,13 +18,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - id: install-gpg-key
-      name: Install GpG key
-      run: |
-        # Install gpg secret key
-        cat <(echo -e "${{ secrets.GPG_SECRET_KEY }}") | gpg --batch --import
-        # Verify gpg secret key
-        gpg --list-secret-keys --keyid-format LONG
 
     - uses: actions/checkout@v3
     - name: Set up JDK 17
@@ -33,5 +26,12 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+    - id: install-gpg-key
+      name: Install GpG key
+      run: |
+        # Install gpg secret key
+        cat <(echo -e "${{ secrets.GPG_SECRET_KEY }}") | gpg --batch --import
+        # Verify gpg secret key
+        gpg --list-secret-keys --keyid-format LONG
     - name: test with Maven
       run: mvn clean clean  install
