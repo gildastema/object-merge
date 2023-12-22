@@ -1,4 +1,4 @@
-package io.github.gildastema.objectmerge;
+package com.github.gildastema.objectmerge;
 
 public class Person {
     private String firstName;

@@ -1,7 +1,7 @@
-package io.github.gildastema.objectmerge;
+package com.github.gildastema.objectmerge;
 
-import io.github.gildastema.objectmerge.type.MergeType;
-import io.github.gildastema.objectmerge.type.ObjectMergeExclude;
+import com.github.gildastema.objectmerge.type.MergeType;
+import com.github.gildastema.objectmerge.type.ObjectMergeExclude;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
