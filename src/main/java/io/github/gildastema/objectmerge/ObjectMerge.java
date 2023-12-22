@@ -4,16 +4,17 @@ import io.github.gildastema.objectmerge.type.MergeType;
 import io.github.gildastema.objectmerge.type.ObjectMergeExclude;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
 public class ObjectMerge<T> {
-    public T merge(T destination, T source) throws IllegalAccessException {
+    public T merge(T destination, T source) throws IllegalAccessException, NoSuchFieldException {
         List<Field> fields = Arrays.asList(source.getClass().getDeclaredFields());
         return getDestination(destination, source, fields);
     }
-    public T merge(T destination, T source, ObjectMergeExclude exclude) throws IllegalAccessException {
+    public T merge(T destination, T source, ObjectMergeExclude exclude) throws IllegalAccessException, NoSuchFieldException {
         if (exclude == ObjectMergeExclude.NOTHING){
             return merge(destination, source);
         }
@@ -56,9 +57,12 @@ public class ObjectMerge<T> {
         }).filter(Objects::nonNull).toList();
     }
 
-    private static <T> T getDestination(T destination, T source, List<Field> fields) throws IllegalAccessException {
+    private static <T> T getDestination(T destination, T source, List<Field> fields) throws IllegalAccessException, NoSuchFieldException {
         for (Field field : fields){
             field.setAccessible(true);
+            Field modifiersField = Field.class.getDeclaredField(field.getName());
+            modifiersField.setAccessible(true);
+            modifiersField.set(field, field.getModifiers() & ~Modifier.FINAL);
             Object value = field.get(source);
             field.set(destination, value);
         }

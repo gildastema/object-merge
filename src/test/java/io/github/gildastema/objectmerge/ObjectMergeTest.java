@@ -17,7 +17,7 @@ class ObjectMergeTest {
 
     }
     @Test
-    void shouldAnswerWithTrue() throws IllegalAccessException {
+    void shouldAnswerWithTrue() throws IllegalAccessException, NoSuchFieldException {
         Person personDest = new Person();
         String firstName = "John";
         String lastName = "Doe";
@@ -30,7 +30,7 @@ class ObjectMergeTest {
     }
 
     @Test
-    void testMergeWithExcludeNULL() throws IllegalAccessException {
+    void testMergeWithExcludeNULL() throws IllegalAccessException, NoSuchFieldException {
         var personDest = new Person("John", "Doe");
         var source = new Person("Jane", null);
         var result = personObjectMerge.merge(personDest, source, ObjectMergeExclude.NULL);
@@ -38,7 +38,7 @@ class ObjectMergeTest {
         assertEquals(personDest.getLastName(), "Doe");
     }
     @Test
-    void testMergeWithExcludeNothing() throws IllegalAccessException {
+    void testMergeWithExcludeNothing() throws IllegalAccessException, NoSuchFieldException {
         var personDest = new Person("John", "Doe");
         var source = new Person("Jane", null);
         var result = personObjectMerge.merge(personDest, source, ObjectMergeExclude.NOTHING);
